@@ -1,0 +1,35 @@
+﻿@model IEnumerable<CJMovieTracker.Utilities.SimpleMovie>
+@{
+    ViewData["Title"] = "CreateMovieMatch";
+}
+
+<h1>CreateMovieMatch</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.movieTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.movieReleaseYear)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.movieTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.movieReleaseYear)
+            </td>
+            <td>
+                <a asp-action="Create" asp-route-id="@item.tmdbId">Select</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

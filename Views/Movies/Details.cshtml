@@ -1,0 +1,66 @@
+﻿@model CJMovieTracker.Data.Movie
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Movie</h4>
+    <hr />
+    <div class="card" style="width: 18rem;">
+        <img src=@Model.getPoster() />
+        <div class="card-body">
+            <h5 class="card-title">@Html.DisplayFor(model => model.MovieTitle)</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                @Html.DisplayFor(model => model.DateWatched)
+            </li>
+            <li class="list-group-item">
+                @Html.DisplayFor(model => model.ChrisRating)
+            </li>
+            <li class="list-group-item">
+                @Html.DisplayFor(model => model.JacieRating)
+            </li>
+        </ul>
+    </div>
+
+@*    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MovieTitle)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MovieTitle)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DateWatched)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DateWatched)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ChrisRating)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ChrisRating)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.JacieRating)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.JacieRating)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.WhoPicked)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.WhoPicked)
+        </dd>
+    </dl>*@
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.MovieId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

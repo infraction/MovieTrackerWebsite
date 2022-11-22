@@ -1,0 +1,61 @@
+﻿@model CJMovieTracker.Data.Movie
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>@Model.MovieTitle</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DateWatched" class="control-label"></label>
+                <input asp-for="DateWatched" class="form-control" type="date" />
+                <span asp-validation-for="DateWatched" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ChrisRating" class="control-label"></label>
+                <input asp-for="ChrisRating" class="form-control" />
+                <span asp-validation-for="ChrisRating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="JacieRating" class="control-label"></label>
+                <input asp-for="JacieRating" class="form-control" />
+                <span asp-validation-for="JacieRating" class="text-danger"></span>
+            </div>
+            <div class="form-check">
+                <label asp-for="WhoPicked" class="form-check-label" for="chris">Chris</label>
+                <input asp-for="WhoPicked" class="form-check-input" type="radio" value="chris" />
+                <span asp-validation-for="WhoPicked" class="text-danger"></span>
+            </div>
+            <div class="form-check">
+                <label asp-for="WhoPicked" class="form-check-label" for="jacie">Jacie</label>
+                <input asp-for="WhoPicked" class="form-check-input" type="radio" value="jacie" />
+                <span asp-validation-for="WhoPicked" class="text-danger"></span>
+            </div>
+            <div class="form-check">
+                <input asp-for="MovieTitle" type="hidden" value=@Model.MovieTitle />
+                <input asp-for="TmdbID" type="hidden" value=@Model.TmdbID />
+                <input asp-for="Description" type="hidden" value=@Model.Description />
+                <input asp-for="ImgLink" type="hidden" value=@Model.ImgLink />
+                <input asp-for="ReleaseYear" type="hidden" value=@Model.ReleaseYear />
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
